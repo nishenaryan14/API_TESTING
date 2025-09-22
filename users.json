@@ -1,0 +1,108 @@
+[
+  {
+    "name": "Alice Johnson",
+    "email": "alice@example.com",
+    "age": 28,
+    "city": "New York",
+    "orders": [
+      { "item": "Laptop", "price": 1200 },
+      { "item": "Headphones", "price": 150 }
+    ]
+  },
+  {
+    "name": "Bob Smith",
+    "email": "bob@example.com",
+    "age": 34,
+    "city": "Los Angeles",
+    "orders": [
+      { "item": "Smartphone", "price": 800 }
+    ]
+  },
+  {
+    "name": "Charlie Brown",
+    "email": "charlie@example.com",
+    "age": 22,
+    "city": "Chicago",
+    "orders": [
+      { "item": "Keyboard", "price": 100 },
+      { "item": "Mouse", "price": 50 }
+    ]
+  },
+  {
+    "name": "David Miller",
+    "email": "david@example.com",
+    "age": 40,
+    "city": "Houston",
+    "orders": []
+  },
+  {
+    "name": "Eva Green",
+    "email": "eva@example.com",
+    "age": 29,
+    "city": "Miami",
+    "orders": [
+      { "item": "Tablet", "price": 400 }
+    ]
+  },
+  {
+    "name": "Frank Wilson",
+    "email": "frank@example.com",
+    "age": 31,
+    "city": "Seattle",
+    "orders": [
+      { "item": "Camera", "price": 900 },
+      { "item": "Tripod", "price": 120 }
+    ]
+  },
+  {
+    "name": "Grace Lee",
+    "email": "grace@example.com",
+    "age": 26,
+    "city": "Boston",
+    "orders": []
+  },
+  {
+    "name": "Henry Adams",
+    "email": "henry@example.com",
+    "age": 36,
+    "city": "Denver",
+    "orders": [
+      { "item": "Monitor", "price": 300 }
+    ]
+  },
+  {
+    "name": "Isabella Moore",
+    "email": "isabella@example.com",
+    "age": 24,
+    "city": "San Francisco",
+    "orders": [
+      { "item": "Smartwatch", "price": 250 }
+    ]
+  },
+  {
+    "name": "Jack White",
+    "email": "jack@example.com",
+    "age": 33,
+    "city": "Austin",
+    "orders": [
+      { "item": "Gaming Console", "price": 500 }
+    ]
+  },
+  {
+    "name": "Karen Black",
+    "email": "karen@example.com",
+    "age": 38,
+    "city": "Portland",
+    "orders": []
+  },
+  {
+    "name": "Liam Scott",
+    "email": "liam@example.com",
+    "age": 27,
+    "city": "San Diego",
+    "orders": [
+      { "item": "Desk", "price": 200 },
+      { "item": "Chair", "price": 150 }
+    ]
+  }
+]
