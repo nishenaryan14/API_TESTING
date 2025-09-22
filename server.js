@@ -63,15 +63,17 @@ app.post("/users", async (req, res) => {
 app.put("/users/:id", async (req, res) => {
   const { id } = req.params;
 
-  // Validate ObjectId format
   if (!ObjectId.isValid(id)) {
     return res.status(400).json({ error: "Invalid ID format" });
   }
 
+  // Remove _id if present
+  const { _id, ...updateData } = req.body;
+
   try {
     const result = await usersCollection.updateOne(
       { _id: new ObjectId(id) },
-      { $set: req.body }
+      { $set: updateData } // only update other fields
     );
 
     if (result.matchedCount === 0) {
@@ -83,6 +85,7 @@ app.put("/users/:id", async (req, res) => {
     res.status(500).json({ error: "Server error", details: err.message });
   }
 });
+
 
 
 // Partial update (PATCH)
