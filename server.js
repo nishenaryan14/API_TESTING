@@ -61,16 +61,29 @@ app.post("/users", async (req, res) => {
 
 // Update user (PUT = full update)
 app.put("/users/:id", async (req, res) => {
+  const { id } = req.params;
+
+  // Validate ObjectId format
+  if (!ObjectId.isValid(id)) {
+    return res.status(400).json({ error: "Invalid ID format" });
+  }
+
   try {
     const result = await usersCollection.updateOne(
-      { _id: new ObjectId(req.params.id) },
+      { _id: new ObjectId(id) },
       { $set: req.body }
     );
+
+    if (result.matchedCount === 0) {
+      return res.status(404).json({ error: "User not found" });
+    }
+
     res.json({ modifiedCount: result.modifiedCount });
-  } catch {
-    res.status(400).json({ error: "Invalid ID format" });
+  } catch (err) {
+    res.status(500).json({ error: "Server error", details: err.message });
   }
 });
+
 
 // Partial update (PATCH)
 app.patch("/users/:id", async (req, res) => {
