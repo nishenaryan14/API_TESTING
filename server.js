@@ -120,14 +120,17 @@ app.patch("/users/:id", async (req, res) => {
 // Delete user
 app.delete("/users/:id", async (req, res) => {
   const { id } = req.params;
+  let query;
 
-  // Validate ObjectId
-  if (!ObjectId.isValid(id)) {
-    return res.status(400).json({ error: "Invalid ID format" });
+  // Check if id is a valid ObjectId
+  if (ObjectId.isValid(id)) {
+    query = { _id: new ObjectId(id) }; // MongoDB ObjectId
+  } else {
+    query = { _id: id }; // Custom string ID
   }
 
   try {
-    const result = await usersCollection.deleteOne({ _id: new ObjectId(id) });
+    const result = await usersCollection.deleteOne(query);
 
     if (result.deletedCount === 0) {
       return res.status(404).json({ error: "User not found" });
@@ -138,6 +141,7 @@ app.delete("/users/:id", async (req, res) => {
     res.status(500).json({ error: "Server error", details: err.message });
   }
 });
+
 
 
 app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
