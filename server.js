@@ -44,14 +44,25 @@ app.get("/users", async (req, res) => {
 
 // Get single user by ID
 app.get("/users/:id", async (req, res) => {
+  const { id } = req.params;
+  let query;
+
+  // Use ObjectId if valid, otherwise treat as string
+  if (ObjectId.isValid(id)) {
+    query = { _id: new ObjectId(id) };
+  } else {
+    query = { _id: id };
+  }
+
   try {
-    const user = await usersCollection.findOne({ _id: new ObjectId(req.params.id) });
+    const user = await usersCollection.findOne(query);
     if (!user) return res.status(404).json({ error: "User not found" });
     res.json(user);
   } catch (err) {
-    res.status(400).json({ error: "Invalid ID format" });
+    res.status(500).json({ error: "Server error", details: err.message });
   }
 });
+
 
 // Add new user (POST)
 app.post("/users", async (req, res) => {
