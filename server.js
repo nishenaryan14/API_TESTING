@@ -90,25 +90,54 @@ app.put("/users/:id", async (req, res) => {
 
 // Partial update (PATCH)
 app.patch("/users/:id", async (req, res) => {
+  const { id } = req.params;
+
+  // Validate ObjectId
+  if (!ObjectId.isValid(id)) {
+    return res.status(400).json({ error: "Invalid ID format" });
+  }
+
+  // Remove _id if present in request body
+  const { _id, ...updateData } = req.body;
+
   try {
     const result = await usersCollection.updateOne(
-      { _id: new ObjectId(req.params.id) },
-      { $set: req.body }
+      { _id: new ObjectId(id) },
+      { $set: updateData }
     );
+
+    if (result.matchedCount === 0) {
+      return res.status(404).json({ error: "User not found" });
+    }
+
     res.json({ modifiedCount: result.modifiedCount });
-  } catch {
-    res.status(400).json({ error: "Invalid ID format" });
+  } catch (err) {
+    res.status(500).json({ error: "Server error", details: err.message });
   }
 });
 
+
 // Delete user
 app.delete("/users/:id", async (req, res) => {
+  const { id } = req.params;
+
+  // Validate ObjectId
+  if (!ObjectId.isValid(id)) {
+    return res.status(400).json({ error: "Invalid ID format" });
+  }
+
   try {
-    const result = await usersCollection.deleteOne({ _id: new ObjectId(req.params.id) });
+    const result = await usersCollection.deleteOne({ _id: new ObjectId(id) });
+
+    if (result.deletedCount === 0) {
+      return res.status(404).json({ error: "User not found" });
+    }
+
     res.json({ deletedCount: result.deletedCount });
-  } catch {
-    res.status(400).json({ error: "Invalid ID format" });
+  } catch (err) {
+    res.status(500).json({ error: "Server error", details: err.message });
   }
 });
+
 
 app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
