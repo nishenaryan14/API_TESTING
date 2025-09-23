@@ -104,5 +104,105 @@
       { "item": "Desk", "price": 200 },
       { "item": "Chair", "price": 150 }
     ]
+  },
+  {
+    "id": 1,
+    "name": "User One",
+    "email": "user1@example.com",
+    "age": 25,
+    "city": "Dallas",
+    "orders": [
+      { "item": "Book", "price": 20 }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "User Two",
+    "email": "user2@example.com",
+    "age": 30,
+    "city": "Phoenix",
+    "orders": [
+      { "item": "Shoes", "price": 80 }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "User Three",
+    "email": "user3@example.com",
+    "age": 28,
+    "city": "Atlanta",
+    "orders": [
+      { "item": "Bag", "price": 50 }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "User Four",
+    "email": "user4@example.com",
+    "age": 32,
+    "city": "Orlando",
+    "orders": [
+      { "item": "Watch", "price": 150 }
+    ]
+  },
+  {
+    "id": 5,
+    "name": "User Five",
+    "email": "user5@example.com",
+    "age": 29,
+    "city": "Las Vegas",
+    "orders": [
+      { "item": "Perfume", "price": 70 }
+    ]
+  },
+  {
+    "id": 6,
+    "name": "User Six",
+    "email": "user6@example.com",
+    "age": 35,
+    "city": "San Jose",
+    "orders": [
+      { "item": "Tablet", "price": 300 }
+    ]
+  },
+  {
+    "id": 7,
+    "name": "User Seven",
+    "email": "user7@example.com",
+    "age": 27,
+    "city": "Columbus",
+    "orders": [
+      { "item": "Headphones", "price": 100 }
+    ]
+  },
+  {
+    "id": 8,
+    "name": "User Eight",
+    "email": "user8@example.com",
+    "age": 31,
+    "city": "Charlotte",
+    "orders": [
+      { "item": "Keyboard", "price": 40 }
+    ]
+  },
+  {
+    "id": 9,
+    "name": "User Nine",
+    "email": "user9@example.com",
+    "age": 26,
+    "city": "Detroit",
+    "orders": [
+      { "item": "Mouse", "price": 25 }
+    ]
+  },
+  {
+    "id": 10,
+    "name": "User Ten",
+    "email": "user10@example.com",
+    "age": 33,
+    "city": "Nashville",
+    "orders": [
+      { "item": "Speaker", "price": 120 }
+    ]
   }
 ]

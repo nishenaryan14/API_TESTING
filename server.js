@@ -62,7 +62,7 @@ app.get("/users/:id", async (req, res) => {
     res.status(500).json({ error: "Server error", details: err.message });
   }
 });
-
+ 
 
 // Add new user (POST)
 app.post("/users", async (req, res) => {
